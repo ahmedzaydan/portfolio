@@ -16,9 +16,9 @@
             "command": "dart",
             "args": [
                 "run",
-                "../../packages/core/lib/src/utils/assets_generator.dart",
+                "lib/utils/assets_generator.dart",
                 "assets",
-                "lib/core/utils/assets_manager.dart"
+                "lib/utils/assets_manager.dart"
             ],
             "group": {
                 "kind": "build",
