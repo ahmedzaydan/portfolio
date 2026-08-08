@@ -5,7 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'config/localization/app_localizations.dart';
 import 'config/routes/app_router.dart';
 import 'config/themes/theme_manager.dart';
-import 'core/size_manager.dart';
+import 'utils/size_manager.dart';
 import 'portfolio/presentation/cubit/profile_cubit.dart';
 
 class PortfolioApp extends StatefulWidget {

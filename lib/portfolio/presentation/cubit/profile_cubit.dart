@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../core/enums/language_enum.dart';
-import '../../../core/extensions/theme_mode_extension.dart';
-import '../../../core/utils/constants_manager.dart';
-import '../../../core/utils/print_state_helper.dart';
+import '../../../enums/language_enum.dart';
+import '../../../extensions/theme_mode_extension.dart';
+import '../../../utils/constants_manager.dart';
+import '../../../utils/print_state_helper.dart';
 
 part 'profile_state.dart';
 

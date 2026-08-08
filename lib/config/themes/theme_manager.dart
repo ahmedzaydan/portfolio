@@ -1,7 +1,7 @@
 ﻿import 'package:flutter/material.dart';
 
-import '../../core/enums/language_enum.dart';
-import '../../core/utils/constants_manager.dart';
+import '../../enums/language_enum.dart';
+import '../../utils/constants_manager.dart';
 
 
 

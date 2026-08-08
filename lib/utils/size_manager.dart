@@ -2,7 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'enums/device_type_enum.dart';
+import '../enums/device_type_enum.dart';
 
 final class SizeManager {
   static SizeManager? _instance;
