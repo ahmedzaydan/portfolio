@@ -1,0 +1,56 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Run build runner",
+            "type": "shell",
+            "command": "dart run build_runner build --delete-conflicting-outputs",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "Generate Assets",
+            "type": "shell",
+            "command": "dart",
+            "args": [
+                "run",
+                "../../packages/core/lib/src/utils/assets_generator.dart",
+                "assets",
+                "lib/core/utils/assets_manager.dart"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Generate Localization",
+            "type": "shell",
+            "command": "flutter gen-l10n",
+            "problemMatcher": []
+        },
+        {
+            "label": "Format and Fix Code",
+            "type": "shell",
+            "command": "dart fix --apply && dart format .",
+            "problemMatcher": [],
+        },
+        {
+            "label": "Refresh",
+            "dependsOn": [
+                "Run build runner",
+                "Generate Assets",
+                "Generate Localization",
+                "Format and Fix Code"
+            ],
+            "dependsOrder": "parallel",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+        },
+    ]
+}
