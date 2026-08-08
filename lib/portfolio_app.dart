@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'core/config/localization/app_localizations.dart';
-import 'core/config/routes/app_router.dart';
-import 'core/config/themes/theme_manager.dart';
+import 'config/localization/app_localizations.dart';
+import 'config/routes/app_router.dart';
+import 'config/themes/theme_manager.dart';
 import 'core/size_manager.dart';
 import 'portfolio/presentation/cubit/profile_cubit.dart';
 

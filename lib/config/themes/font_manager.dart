@@ -1,5 +1,5 @@
-import '../../enums/device_type_enum.dart';
-import '../../size_manager.dart';
+import '../../core/enums/device_type_enum.dart';
+import '../../core/size_manager.dart';
 
 class FontManager {
   FontManager._();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../extensions/context_extension.dart';
+import '../../core/extensions/context_extension.dart';
 
 part 'app_router.g.dart';
 
