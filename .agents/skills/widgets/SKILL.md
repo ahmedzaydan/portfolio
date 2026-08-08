@@ -23,36 +23,14 @@ description: Instruction to create new widgets or screen
 context.textStyle.<key>.copyWith(color: context.colorManager.<color>)
 ```
 
+## Spacing & Sizing
+- Any spacing values, height, width, padding, margin, radius, or widget sizes should use the extensions defined in `utils/size_manager.dart`.
+- Use `.w` for width/horizontal spacing, `.h` for height/vertical spacing, and `.r` for border radius.
+
 ## Assets
 
 - Any asset path should be accessed only by `AssetsManager.<key>`
 
-## Components
-
-- Any buttons should be created by `CustomElevatedButton` (ask user every time)
-- Any text field should be created by `CustomTextFormField` (ask user every time)
-
-## BlocConsumer Listener
-- Always extract the listener body into a **private method** named `_listener` with the same signature and assign it to the `listener` parameter — never write logic inline.
-
-## Showing Toasts
-
-- Always use `context.showSuccess/ErrorToast(message)` to show toasts
-
-## State Status Checks
-- When checking for status in the UI, always use getters in `core/enums/state_enum.dart`:
-  ```dart
-  profileState.getProfileStatus.isSuccess/isLoading/isFailure
-  ```
-- Use the **extension getters** on `StateEnum?` defined in `lib/core/enums/state_enum.dart` — they already handle null safely, so never add a null check before them.
-  ```dart
-  // ✅ Correct — null-safe getters, no explicit null check needed
-  if (state.getProfileStatus.isSuccess) { ... }
-
-  // ❌ Wrong — redundant null check or raw enum comparison
-  if (state.getProfileStatus != null && state.getProfileStatus == StateEnum.success) { ... }
-  ```
-- **always** Prefer `GenericBlocBuilder` / `GenericBlocConsumer` from `core/widgets/states/` for standard loading/error/success patterns.
 
 ## General Rules
 - **always** Keep files readable and maintainable by following SOLID, KISS, DRY and YAGNI principles.

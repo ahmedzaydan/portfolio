@@ -8,7 +8,7 @@ import '../enums/language_enum.dart';
 extension ContextExtension on BuildContext {
   bool get isRTL => Directionality.of(this) == TextDirection.rtl;
 
-  ColorScheme get colors {
+  ColorScheme get colorManager {
     return Theme.of(this).colorScheme;
   }
 

@@ -11,7 +11,7 @@ class PersonalInfoModel {
   final IconModel whatsApp;
   final IconModel linkedIn;
   final IconModel github;
-  final String imageUrl;
+  final String avatar;
 
   const PersonalInfoModel()
     : name = 'Ahmed Zaydan',
@@ -33,5 +33,5 @@ class PersonalInfoModel {
         path: AssetsManager.linkedinSVG,
         url: 'https://linkedin.com/in/ahmed-zaydan',
       ),
-      imageUrl = AssetsManager.ahmedJPG;
+      avatar = AssetsManager.ahmedJPG;
 }
