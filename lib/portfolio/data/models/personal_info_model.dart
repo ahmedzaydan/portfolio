@@ -12,6 +12,7 @@ class PersonalInfoModel {
   final IconModel linkedIn;
   final IconModel github;
   final String avatar;
+  final String marketingText;
 
   const PersonalInfoModel()
     : name = 'Ahmed Zaydan',
@@ -33,5 +34,6 @@ class PersonalInfoModel {
         path: AssetsManager.linkedinSVG,
         url: 'https://linkedin.com/in/ahmed-zaydan',
       ),
+      marketingText = 'Crafting performant mobile experiences with Flutter.',
       avatar = AssetsManager.ahmedJPG;
 }

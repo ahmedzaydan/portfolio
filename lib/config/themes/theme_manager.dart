@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../enums/language_enum.dart';
 import '../../utils/constants_manager.dart';
+import '../../utils/size_manager.dart';
 
 class ThemeManager {
   ThemeManager._();
@@ -26,110 +27,150 @@ class ThemeManager {
     _theme = _createTheme();
   }
 
-  // Backgrounds
-  static const _primaryBg = Color(0xFF080C14);
-  static const _surface = Color(0xFF0F1724);
-  static const _card = Color(0xFF1A2336);
+  ColorScheme _createColorScheme() {
+    const primaryBg = Color(0xFF080C14);
+    const surface = Color(0xFF0F1724);
+    const card = Color(0xFF1A2336);
+    const cyan = Color(0xFF00D4F5);
+    const purple = Color(0xFF6C63FF);
+    const textPrimary = Color(0xFFE8EDF5);
+    const textSecondary = Color(0xFF8B9BB4);
+    const textMuted = Color(0xFF4A5568);
 
-  // Accents
-  static const _cyan = Color(0xFF00D4F5);
-  static const _purple = Color(0xFF6C63FF);
-
-  // Text
-  static const _textPrimary = Color(0xFFE8EDF5);
-  static const _textSecondary = Color(0xFF8B9BB4);
-  static const _textMuted = Color(0xFF4A5568);
-
-  ThemeData _createTheme() {
-    const colorScheme = ColorScheme(
+    return const ColorScheme(
       brightness: Brightness.dark,
       // Core surface & background
-      surface: _surface,
-      onSurface: _textPrimary,
-      surfaceContainerLowest: _primaryBg,
-      surfaceContainerLow: _surface,
-      surfaceContainer: _card,
-      surfaceContainerHigh: _card,
-      surfaceContainerHighest: _card,
+      surface: surface,
+      onSurface: textPrimary,
+      onSurfaceVariant: textSecondary,
+      surfaceContainerLowest: primaryBg,
+      surfaceContainerLow: surface,
+      surfaceContainer: card,
+      surfaceContainerHigh: card,
+      surfaceContainerHighest: card,
       // Primary = Cyan accent
-      primary: _cyan,
-      onPrimary: _primaryBg,
-      primaryContainer: _cyan,
-      onPrimaryContainer: _primaryBg,
+      primary: cyan,
+      onPrimary: primaryBg,
+      primaryContainer: cyan,
+      onPrimaryContainer: primaryBg,
       // Secondary = Purple accent
-      secondary: _purple,
-      onSecondary: _textPrimary,
-      secondaryContainer: _purple,
-      onSecondaryContainer: _textPrimary,
+      secondary: purple,
+      onSecondary: textPrimary,
+      secondaryContainer: purple,
+      onSecondaryContainer: textPrimary,
       // Tertiary (re-use cyan variant)
-      tertiary: _cyan,
-      onTertiary: _primaryBg,
-      tertiaryContainer: _cyan,
-      onTertiaryContainer: _primaryBg,
+      tertiary: cyan,
+      onTertiary: primaryBg,
+      tertiaryContainer: cyan,
+      onTertiaryContainer: primaryBg,
       // Error – keep a visible red
       error: Color(0xFFCF6679),
-      onError: _primaryBg,
+      onError: primaryBg,
       errorContainer: Color(0xFF93000A),
       onErrorContainer: Color(0xFFFFDAD6),
       // Outline / divider
-      outline: _textMuted,
-      outlineVariant: _card,
+      outline: textMuted,
+      outlineVariant: card,
       // Misc
       shadow: Colors.black,
       scrim: Colors.black,
-      inverseSurface: _textPrimary,
-      onInverseSurface: _primaryBg,
+      inverseSurface: textPrimary,
+      onInverseSurface: primaryBg,
       inversePrimary: Color(0xFF006878),
     );
+  }
 
-    const textTheme = TextTheme(
-      // Display
-      displayLarge: TextStyle(color: _textPrimary, fontWeight: FontWeight.bold),
-      displayMedium: TextStyle(
-        color: _textPrimary,
-        fontWeight: FontWeight.bold,
-      ),
-      displaySmall: TextStyle(color: _textPrimary, fontWeight: FontWeight.bold),
-      // Headline
-      headlineLarge: TextStyle(
-        color: _textPrimary,
-        fontWeight: FontWeight.bold,
-      ),
-      headlineMedium: TextStyle(
-        color: _textPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      headlineSmall: TextStyle(
-        color: _textPrimary,
-        fontWeight: FontWeight.w600,
-      ),
-      // Title
-      titleLarge: TextStyle(color: _textPrimary, fontWeight: FontWeight.w600),
-      titleMedium: TextStyle(
-        color: _textSecondary,
-        fontWeight: FontWeight.w500,
-      ),
-      titleSmall: TextStyle(color: _textSecondary, fontWeight: FontWeight.w500),
-      // Body
-      bodyLarge: TextStyle(color: _textPrimary),
-      bodyMedium: TextStyle(color: _textSecondary),
-      bodySmall: TextStyle(color: _textMuted),
-      // Label
-      labelLarge: TextStyle(color: _textPrimary, fontWeight: FontWeight.w500),
-      labelMedium: TextStyle(
-        color: _textSecondary,
-        fontWeight: FontWeight.w500,
-      ),
-      labelSmall: TextStyle(color: _textMuted, fontWeight: FontWeight.w500),
-    );
+  ThemeData _createTheme() {
+    final colorScheme = _createColorScheme();
 
     return ThemeData(
       fontFamily: fontFamily,
       brightness: Brightness.dark,
       colorScheme: colorScheme,
-      textTheme: textTheme,
-      scaffoldBackgroundColor: _primaryBg,
-      cardColor: _card,
+      textTheme: _createTextTheme(colorScheme),
+      scaffoldBackgroundColor: colorScheme.surfaceContainerLowest,
+      cardColor: colorScheme.surfaceContainer,
+      elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: colorScheme.primary,
+          foregroundColor: colorScheme.onPrimary,
+          padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 20.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+      ),
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          side: BorderSide(color: colorScheme.primary),
+          foregroundColor: colorScheme.primary,
+          padding: EdgeInsets.symmetric(horizontal: 28.w, vertical: 20.h),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8.r),
+          ),
+        ),
+      ),
+    );
+  }
+
+  TextTheme _createTextTheme(ColorScheme colorScheme) {
+    return TextTheme(
+      // Display
+      displayLarge: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.bold,
+      ),
+      displayMedium: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.bold,
+      ),
+      displaySmall: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.bold,
+      ),
+      // Headline
+      headlineLarge: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.bold,
+      ),
+      headlineMedium: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.w600,
+      ),
+      headlineSmall: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.w600,
+      ),
+      // Title
+      titleLarge: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.w600,
+      ),
+      titleMedium: TextStyle(
+        color: colorScheme.onSurfaceVariant,
+        fontWeight: FontWeight.w500,
+      ),
+      titleSmall: TextStyle(
+        color: colorScheme.onSurfaceVariant,
+        fontWeight: FontWeight.w500,
+      ),
+      // Body
+      bodyLarge: TextStyle(color: colorScheme.onSurface),
+      bodyMedium: TextStyle(color: colorScheme.onSurfaceVariant),
+      bodySmall: TextStyle(color: colorScheme.outline),
+      // Label
+      labelLarge: TextStyle(
+        color: colorScheme.onSurface,
+        fontWeight: FontWeight.w500,
+      ),
+      labelMedium: TextStyle(
+        color: colorScheme.onSurfaceVariant,
+        fontWeight: FontWeight.w500,
+      ),
+      labelSmall: TextStyle(
+        color: colorScheme.outline,
+        fontWeight: FontWeight.w500,
+      ),
     );
   }
 

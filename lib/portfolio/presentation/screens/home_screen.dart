@@ -1,29 +1,20 @@
 import 'package:flutter/material.dart';
 
-import '../../../extensions/context_extension.dart';
-import '../widgets/home_header_widget.dart';
+import '../widgets/about_section.dart';
+import '../widgets/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Portfolio'),
-        actions: [
-          TextButton(
-            onPressed: () => context.cubit.toggleLanguage(),
-            child: const Text("Toogle Language"),
-          ),
-        ],
-      ),
-      body: const SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [HomeHeaderWidget()],
-          ),
+    return const Scaffold(
+      body: SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(child: HomeHeader()),
+            SliverToBoxAdapter(child: AboutSection()),
+          ],
         ),
       ),
     );

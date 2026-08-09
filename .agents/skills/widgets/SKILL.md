@@ -15,6 +15,7 @@ description: Instruction to create new widgets or screen
 
 ## Colors
 - Any color value should be accessed only by `context.colorManager.<key>`
+- If you want to use opaticy, use color.withCustomOpacity
 
 ## Text Styles
 - Any text style value should be accessed only by:
