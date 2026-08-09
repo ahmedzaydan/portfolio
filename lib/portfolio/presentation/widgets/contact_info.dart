@@ -68,39 +68,36 @@ class _ContactItem extends StatelessWidget {
     return InkWell(
       onTap: url != null ? _launchUrl : null,
       borderRadius: BorderRadius.circular(12.r),
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 4.h, horizontal: 4.w),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          spacing: 2.w,
-          children: [
-            Container(
-              padding: EdgeInsets.all(10.r),
-              decoration: BoxDecoration(
-                color: context.colorManager.primary.withCustomOpacity(0.1),
-                borderRadius: BorderRadius.circular(12.r),
-              ),
-              child: SvgPicture.asset(
-                svgPath,
-                width: 24.r,
-                height: 24.r,
-                colorFilter: ColorFilter.mode(
-                  context.colorManager.primary,
-                  BlendMode.srcIn,
-                ),
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 2.w,
+        children: [
+          Container(
+            padding: EdgeInsets.all(10.r),
+            decoration: BoxDecoration(
+              color: context.colorManager.primary.withCustomOpacity(0.1),
+              borderRadius: BorderRadius.circular(12.r),
+            ),
+            child: SvgPicture.asset(
+              svgPath,
+              width: 24.r,
+              height: 24.r,
+              colorFilter: ColorFilter.mode(
+                context.colorManager.primary,
+                BlendMode.srcIn,
               ),
             ),
-            if (value != null) ...[
-              Text(
-                value!,
-                style: context.textStyles.bodyMedium?.copyWith(
-                  color: context.colorManager.onSurface,
-                  fontWeight: FontWeight.w600,
-                ),
+          ),
+          if (value != null) ...[
+            Text(
+              value!,
+              style: context.textStyles.bodyMedium?.copyWith(
+                color: context.colorManager.onSurface,
+                fontWeight: FontWeight.w600,
               ),
-            ],
+            ),
           ],
-        ),
+        ],
       ),
     );
   }

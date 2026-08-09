@@ -27,23 +27,20 @@ class _DesktopLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     const personalInfo = PortfolioDataSource.personalInfo;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 80.h),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Expanded(
-            flex: 6,
-            child: _TextBlock(personalInfo: personalInfo),
-          ),
-          SizedBox(width: 80.w),
-          Expanded(
-            flex: 2,
-            child: Align(child: _Avatar(avatar: personalInfo.avatar)),
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Expanded(
+          flex: 7,
+          child: _TextBlock(personalInfo: personalInfo),
+        ),
+        SizedBox(width: 80.w),
+        Expanded(
+          flex: 2,
+          child: Align(child: _Avatar(avatar: personalInfo.avatar)),
+        ),
+      ],
     );
   }
 }
@@ -55,15 +52,12 @@ class _MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     const personalInfo = PortfolioDataSource.personalInfo;
 
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 48.h),
-      child: Column(
-        children: [
-          _Avatar(avatar: personalInfo.avatar),
-          SizedBox(height: 48.h),
-          const _TextBlock(personalInfo: personalInfo),
-        ],
-      ),
+    return Column(
+      children: [
+        _Avatar(avatar: personalInfo.avatar),
+        SizedBox(height: 48.h),
+        const _TextBlock(personalInfo: personalInfo),
+      ],
     );
   }
 }

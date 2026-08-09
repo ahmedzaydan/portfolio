@@ -17,7 +17,6 @@ class AboutSection extends StatelessWidget {
         personalInfo.about,
         style: context.textStyles.bodyLarge?.copyWith(
           color: context.colorManager.onSurface,
-          height: 1.7,
         ),
       ),
     );
