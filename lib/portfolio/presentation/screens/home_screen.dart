@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../utils/size_manager.dart';
 import '../widgets/about_section.dart';
 import '../widgets/education_section.dart';
+import '../widgets/experiences_section.dart';
 import '../widgets/home_header.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,17 +12,23 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: EdgeInsets.symmetric(vertical: 80.h, horizontal: 40.w),
-        child: const CustomScrollView(
-          slivers: [
-            SliverToBoxAdapter(child: HomeHeader()),
-            _Separator(),
-            SliverToBoxAdapter(child: AboutSection()),
-            _Separator(),
-            SliverToBoxAdapter(child: EducationSection()),
-          ],
-        ),
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: EdgeInsets.symmetric(vertical: 80.h, horizontal: 40.w),
+            sliver: const SliverMainAxisGroup(
+              slivers: [
+                SliverToBoxAdapter(child: HomeHeader()),
+                _Separator(),
+                SliverToBoxAdapter(child: AboutSection()),
+                _Separator(),
+                SliverToBoxAdapter(child: EducationSection()),
+                _Separator(),
+                SliverToBoxAdapter(child: ExperiencesSection()),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

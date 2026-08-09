@@ -93,7 +93,6 @@ class _ContactItem extends StatelessWidget {
               value!,
               style: context.textStyles.bodyMedium?.copyWith(
                 color: context.colorManager.onSurface,
-                fontWeight: FontWeight.w600,
               ),
             ),
           ],
