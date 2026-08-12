@@ -2,6 +2,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Web Server",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "web-server",
+            "program": "lib/main.dart"
+        },
+        {
             "name": "No Debug",
             "request": "launch",
             "type": "dart",

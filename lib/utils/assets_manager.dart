@@ -5,6 +5,15 @@ abstract final class AssetsManager {
 
   /// Images
   static const String ahmedJPG = '$_imagesPath/ahmed.jpg';
+  static const String auditPNG = '$_imagesPath/audit.png';
+  static const String azulzinhoPNG = '$_imagesPath/azulzinho.png';
+  static const String gitJuniorPNG = '$_imagesPath/git_junior.png';
+  static const String nabihDigitalJPEG = '$_imagesPath/nabih_digital.jpeg';
+  static const String taaMarboutaPNG = '$_imagesPath/taa_marbouta.png';
+  static const String taaMarboutaClinicPNG =
+      '$_imagesPath/taa_marbouta_clinic.png';
+  static const String talabetyJPG = '$_imagesPath/talabety.jpg';
+  static const String wadjetPartnersPNG = '$_imagesPath/wadjet_partners.png';
 
   /// Svgs
   static const String appStoreSVG = '$_svgsPath/app_store.svg';
