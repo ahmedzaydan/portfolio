@@ -28,13 +28,13 @@ class TextStylesThemeExtension
 
     return TextStylesThemeExtension._private(
       display: TextStyleWeights(
-        base: modified.copyWith(fontSize: 36.responsiveFont),
+        base: modified.copyWith(fontSize: 20.responsiveFont),
       ),
       heading: TextStyleWeights(
-        base: modified.copyWith(fontSize: 24.responsiveFont),
+        base: modified.copyWith(fontSize: 18.responsiveFont),
       ),
       title: TextStyleWeights(
-        base: modified.copyWith(fontSize: 20.responsiveFont),
+        base: modified.copyWith(fontSize: 16.responsiveFont),
       ),
       body: TextStyleWeights(
         base: modified.copyWith(fontSize: 14.responsiveFont),

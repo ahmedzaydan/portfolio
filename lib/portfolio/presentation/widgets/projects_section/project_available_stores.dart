@@ -16,10 +16,11 @@ class PorojectAvailableStores extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       spacing: 4.w,
       children: [
         if (project.playStore != null)
-          Expanded(
+          Flexible(
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: StoreBadge(
@@ -29,7 +30,7 @@ class PorojectAvailableStores extends StatelessWidget {
             ),
           ),
         if (project.appStore != null)
-          Expanded(
+          Flexible(
             child: FittedBox(
               fit: BoxFit.scaleDown,
               child: StoreBadge(

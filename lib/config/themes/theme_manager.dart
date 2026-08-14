@@ -15,18 +15,15 @@ class ThemeManager {
 
   String? _fontFamily;
 
-  ThemeData? _theme;
-
   String get fontFamily => _fontFamily ??= ConstantsManager.iBMPlexSans;
 
-  ThemeData get theme => _theme ??= _createTheme();
+  ThemeData get theme => _createTheme();
 
   void setFontFamily(LanguageEnum language) =>
       _fontFamily = language.fontFamily;
 
   void onLangaugeChanged(LanguageEnum language) {
     setFontFamily(language);
-    _theme = _createTheme();
   }
 
   ThemeData _createTheme() {
@@ -49,7 +46,7 @@ class ThemeManager {
           maximumSize: Size.fromHeight(56.h),
           backgroundColor: colorScheme.primary,
           foregroundColor: colorScheme.onPrimary,
-          padding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 14.h),
+          padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 10.h),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.r),
           ),
@@ -62,7 +59,7 @@ class ThemeManager {
           maximumSize: Size.fromHeight(56.h),
           side: BorderSide(color: colorScheme.primary),
           foregroundColor: colorScheme.primary,
-          padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 14.h),
+          padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 14.h),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.r),
           ),

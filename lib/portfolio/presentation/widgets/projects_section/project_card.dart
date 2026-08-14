@@ -61,7 +61,7 @@ class _ProjectCardState extends State<ProjectCard> {
                         widget.project.description,
                         maxLines: 4,
                         overflow: TextOverflow.ellipsis,
-                        style: context.textStyles.body.regular.copyWith(
+                        style: context.textStyles.label.regular.copyWith(
                           color: context.colorManager.onSurfaceVariant,
                         ),
                       ),
@@ -94,7 +94,10 @@ class _LogoBanner extends StatelessWidget {
       child: Center(
         child: ClipRRect(
           borderRadius: BorderRadius.circular(12.r),
-          child: AspectRatio(aspectRatio: 1, child: Image.asset(image)),
+          child: AspectRatio(
+            aspectRatio: 1,
+            child: Image.asset(image, fit: BoxFit.cover),
+          ),
         ),
       ),
     );
