@@ -15,7 +15,7 @@ class AboutSection extends StatelessWidget {
       title: 'About Me',
       child: Text(
         personalInfo.about,
-        style: context.textStyles.bodyLarge?.copyWith(
+        style: context.textStyles.body.regular.copyWith(
           color: context.colorManager.onSurface,
         ),
       ),

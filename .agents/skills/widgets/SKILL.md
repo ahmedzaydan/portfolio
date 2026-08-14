@@ -21,7 +21,7 @@ description: Instruction to create new widgets or screen
 - Any text style value should be accessed only by:
 
 ```dart
-context.textStyle.<key>.copyWith(color: context.colorManager.<color>)
+context.textStyles.<key>.<weight>.copyWith(color: context.colorManager.<color>)
 ```
 
 ## Spacing & Sizing

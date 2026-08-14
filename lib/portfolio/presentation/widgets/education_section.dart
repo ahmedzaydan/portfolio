@@ -22,7 +22,7 @@ class EducationSection extends StatelessWidget {
           SizedBox(height: 8.h),
           Text(
             education.institution,
-            style: context.textStyles.titleMedium?.copyWith(
+            style: context.textStyles.title.regular.copyWith(
               color: context.colorManager.onSurface,
             ),
           ),
@@ -42,7 +42,7 @@ class EducationSection extends StatelessWidget {
             (detail) => Chip(
               label: Text(
                 detail,
-                style: context.textStyles.bodyMedium?.copyWith(
+                style: context.textStyles.body.regular.copyWith(
                   color: context.colorManager.onPrimary,
                 ),
               ),
@@ -65,16 +65,15 @@ class EducationSection extends StatelessWidget {
         Expanded(
           child: Text(
             education.degree,
-            style: context.textStyles.titleLarge?.copyWith(
+            style: context.textStyles.title.bold.copyWith(
               color: context.colorManager.primary,
-              fontWeight: FontWeight.bold,
             ),
           ),
         ),
         SizedBox(width: 16.w),
         Text(
           '${education.startDate} - ${education.endDate}',
-          style: context.textStyles.bodyLarge?.copyWith(
+          style: context.textStyles.body.regular.copyWith(
             color: context.colorManager.onSurfaceVariant,
           ),
         ),

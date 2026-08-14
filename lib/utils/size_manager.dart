@@ -50,9 +50,8 @@ final class SizeManager {
     isPortrait = MediaQuery.orientationOf(context) == Orientation.portrait;
 
     final newSize = MediaQuery.sizeOf(context);
-    if (newSize == _deviceSize) {
-      return;
-    }
+
+    if (newSize == _deviceSize) return;
 
     _deviceSize = newSize;
     _widthScaleFactor = _computeWidthScaleFactor();
@@ -128,15 +127,12 @@ final class SizeManager {
   T conditionalValue<T>({
     required T mobile,
     required T tablet,
-    T? largeTablet,
-    T? desktop,
+    required T desktop,
   }) {
     final value = switch (deviceType) {
       DeviceTypeEnum.mobile => mobile,
-      DeviceTypeEnum.tablet => isPortrait ? tablet : (largeTablet ?? tablet),
-      DeviceTypeEnum.largeTablet =>
-        isPortrait ? largeTablet ?? tablet : (desktop ?? largeTablet ?? tablet),
-      DeviceTypeEnum.desktop => desktop ?? largeTablet ?? tablet,
+      DeviceTypeEnum.tablet => tablet,
+      DeviceTypeEnum.desktop => desktop,
     };
 
     if (T is double || T is double?) {

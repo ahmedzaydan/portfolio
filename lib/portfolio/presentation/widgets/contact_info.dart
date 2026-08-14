@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../extensions/color_extension.dart';
 import '../../../extensions/context_extension.dart';
 import '../../../utils/assets_manager.dart';
+import '../../../utils/custom_url_launcher.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/portfolio_data_source.dart';
 
@@ -55,18 +55,13 @@ class _ContactItem extends StatelessWidget {
   final String? value;
   final String? url;
 
-  Future<void> _launchUrl() async {
-    if (url == null) return;
-    final uri = Uri.parse(url!);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: url != null ? _launchUrl : null,
+      onTap: () {
+        if (url == null) return;
+        CustomUrlLauncher.launch(url!);
+      },
       borderRadius: BorderRadius.circular(12.r),
       child: Row(
         mainAxisSize: MainAxisSize.min,
@@ -91,7 +86,7 @@ class _ContactItem extends StatelessWidget {
           if (value != null) ...[
             Text(
               value!,
-              style: context.textStyles.bodyMedium?.copyWith(
+              style: context.textStyles.body.regular.copyWith(
                 color: context.colorManager.onSurface,
               ),
             ),

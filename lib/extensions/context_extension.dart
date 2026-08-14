@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../portfolio/presentation/cubit/profile_cubit.dart';
+import '../config/themes/text_styles_theme_extension.dart';
 import '../enums/language_enum.dart';
 
 extension ContextExtension on BuildContext {
@@ -12,8 +13,8 @@ extension ContextExtension on BuildContext {
     return Theme.of(this).colorScheme;
   }
 
-  TextTheme get textStyles {
-    return Theme.of(this).textTheme;
+  TextStylesThemeExtension get textStyles {
+    return Theme.of(this).extension<TextStylesThemeExtension>()!;
   }
 
   bool get isKeyboardOpen => MediaQuery.viewInsetsOf(this).bottom != 0;

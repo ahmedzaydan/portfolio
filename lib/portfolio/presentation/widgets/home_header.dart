@@ -14,8 +14,9 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveLayoutBuilder(
-      desktop: (context) => const _DesktopLayout(),
       mobile: (context) => const _MobileLayout(),
+      tablet: (context) => const _TabletLayout(),
+      desktop: (context) => const _DesktopLayout(),
     );
   }
 }
@@ -31,13 +32,32 @@ class _DesktopLayout extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Expanded(
-          flex: 7,
-          child: _TextBlock(personalInfo: personalInfo),
-        ),
+        const Expanded(flex: 7, child: _TextBlock(personalInfo: personalInfo)),
         SizedBox(width: 80.w),
         Expanded(
           flex: 2,
+          child: Align(child: _Avatar(avatar: personalInfo.avatar)),
+        ),
+      ],
+    );
+  }
+}
+
+class _TabletLayout extends StatelessWidget {
+  const _TabletLayout();
+
+  @override
+  Widget build(BuildContext context) {
+    const personalInfo = PortfolioDataSource.personalInfo;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Expanded(flex: 7, child: _TextBlock(personalInfo: personalInfo)),
+        SizedBox(width: 40.w),
+        Expanded(
+          flex: 3,
           child: Align(child: _Avatar(avatar: personalInfo.avatar)),
         ),
       ],
@@ -75,22 +95,22 @@ class _TextBlock extends StatelessWidget {
       children: [
         AnimatedTypingText(
           text: personalInfo.name,
-          style: context.textStyles.displayLarge?.copyWith(
+          style: context.textStyles.display.regular.copyWith(
             color: context.colorManager.primary,
           ),
         ),
         SizedBox(height: 16.h),
         AnimatedTypingText(
           text: personalInfo.title,
-          style: context.textStyles.headlineSmall?.copyWith(
-            color: context.textStyles.titleMedium?.color,
+          style: context.textStyles.heading.regular.copyWith(
+            color: context.colorManager.onSurface,
           ),
         ),
         SizedBox(height: 24.h),
         AnimatedTypingText(
           text: personalInfo.marketingText,
-          style: context.textStyles.bodyLarge?.copyWith(
-            color: context.textStyles.titleMedium?.color,
+          style: context.textStyles.body.regular.copyWith(
+            color: context.colorManager.onSurface,
           ),
         ),
         SizedBox(height: 48.h),
@@ -125,6 +145,16 @@ class _Avatar extends StatelessWidget {
           border: Border.all(width: 1.w, color: context.colorManager.primary),
         ),
         padding: EdgeInsets.all(2.r),
+        child: CircleAvatar(backgroundImage: AssetImage(avatar)),
+      ),
+      tablet: (context) => Container(
+        width: 160.r,
+        height: 160.r,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          border: Border.all(width: 1.w, color: context.colorManager.primary),
+        ),
+        padding: EdgeInsets.all(4.r),
         child: CircleAvatar(backgroundImage: AssetImage(avatar)),
       ),
       desktop: (context) => Container(

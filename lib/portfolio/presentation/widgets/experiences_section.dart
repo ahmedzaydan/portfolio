@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 import '../../../extensions/context_extension.dart';
+import '../../../utils/custom_url_launcher.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/models/experiences_model.dart';
 import '../../data/portfolio_data_source.dart';
@@ -33,13 +33,6 @@ class _ExperienceItem extends StatelessWidget {
 
   final ExperienceModel experience;
 
-  Future<void> _launchUrl() async {
-    final uri = Uri.parse(experience.companyUrl);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -50,16 +43,16 @@ class _ExperienceItem extends StatelessWidget {
           children: [
             Text(
               '${experience.role} - ',
-              style: context.textStyles.titleLarge?.copyWith(
+              style: context.textStyles.title.regular.copyWith(
                 color: context.colorManager.onSurface,
               ),
             ),
             InkWell(
-              onTap: _launchUrl,
+              onTap: () => CustomUrlLauncher.launch(experience.companyUrl),
               borderRadius: BorderRadius.circular(12.r),
               child: Text(
                 experience.companyName,
-                style: context.textStyles.titleLarge?.copyWith(
+                style: context.textStyles.title.regular.copyWith(
                   color: context.colorManager.primary,
                 ),
               ),
@@ -68,13 +61,13 @@ class _ExperienceItem extends StatelessWidget {
             SizedBox(width: 16.w),
             Text(
               '${experience.startDate} - ${experience.endDate}',
-              style: context.textStyles.bodyLarge?.copyWith(
+              style: context.textStyles.body.regular.copyWith(
                 color: context.colorManager.onSurfaceVariant,
               ),
             ),
           ],
         ),
-        
+
         if (experience.responsibilities.isNotEmpty)
           _ResponsibilitiesList(responsibilities: experience.responsibilities),
       ],
@@ -100,14 +93,14 @@ class _ResponsibilitiesList extends StatelessWidget {
           children: [
             Text(
               '• ',
-              style: context.textStyles.bodyLarge?.copyWith(
+              style: context.textStyles.body.regular.copyWith(
                 color: context.colorManager.primary,
               ),
             ),
             Expanded(
               child: Text(
                 resp,
-                style: context.textStyles.bodyMedium?.copyWith(
+                style: context.textStyles.body.regular.copyWith(
                   color: context.colorManager.onSurface,
                   height: 1.5,
                 ),

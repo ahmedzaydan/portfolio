@@ -1,20 +1,15 @@
 enum DeviceTypeEnum {
-  mobile(300),
+  mobile(0),
   tablet(600),
-  largeTablet(900),
-  desktop(1200);
+  desktop(1000);
 
   static DeviceTypeEnum fromWidth(double width) {
     if (width < DeviceTypeEnum.tablet.breakpoint) {
       return DeviceTypeEnum.mobile;
     }
 
-    if (width < DeviceTypeEnum.largeTablet.breakpoint) {
-      return DeviceTypeEnum.tablet;
-    }
-
     if (width < DeviceTypeEnum.desktop.breakpoint) {
-      return DeviceTypeEnum.largeTablet;
+      return DeviceTypeEnum.tablet;
     }
 
     return DeviceTypeEnum.desktop;
@@ -22,7 +17,6 @@ enum DeviceTypeEnum {
 
   bool get isMobile => this == DeviceTypeEnum.mobile;
   bool get isTablet => this == DeviceTypeEnum.tablet;
-  bool get isLargeTablet => this == DeviceTypeEnum.largeTablet;
   bool get isDesktop => this == DeviceTypeEnum.desktop;
 
   final double breakpoint;

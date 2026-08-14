@@ -14,17 +14,20 @@ class SectionTitle extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          title,
-          style: context.textStyles.headlineMedium?.copyWith(
-            color: context.colorManager.onSurface,
+        IntrinsicWidth(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Text(
+                title,
+                style: context.textStyles.heading.medium.copyWith(
+                  color: context.colorManager.onSurface,
+                ),
+              ),
+              SizedBox(height: 12.h),
+              Container(height: 2.h, color: context.colorManager.primary),
+            ],
           ),
-        ),
-        SizedBox(height: 12.h),
-        Container(
-          width: 40.w,
-          height: 2.h,
-          color: context.colorManager.primary,
         ),
         SizedBox(height: 40.h),
         child,
