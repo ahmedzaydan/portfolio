@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../utils/size_manager.dart';
+import '../widgets/about_section.dart';
+import '../widgets/education_section.dart';
+import '../widgets/experiences_section.dart';
 import '../widgets/home_header.dart';
 import '../widgets/projects_section/projects_section.dart';
 import '../widgets/responsive_layout_builder.dart';
@@ -41,12 +44,12 @@ class _Layout extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(child: HomeHeader()),
               _Separator(),
-              // SliverToBoxAdapter(child: AboutSection()),
-              // _Separator(),
-              // SliverToBoxAdapter(child: EducationSection()),
-              // _Separator(),
-              // SliverToBoxAdapter(child: ExperiencesSection()),
-              // _Separator(),
+              SliverToBoxAdapter(child: AboutSection()),
+              _Separator(),
+              SliverToBoxAdapter(child: EducationSection()),
+              _Separator(),
+              SliverToBoxAdapter(child: ExperiencesSection()),
+              _Separator(),
               SliverToBoxAdapter(child: ProjectsSection()),
             ],
           ),

@@ -15,20 +15,15 @@ class ContactInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     const personalInfo = PortfolioDataSource.personalInfo;
     return Wrap(
-      spacing: 4.w,
+      spacing: 10.w,
+      runSpacing: 10.w,
       children: [
-        // _ContactItem(
-        //   svgPath: AssetsManager.locationSVG,
-        //   value: personalInfo.location,
-        // ),
         _ContactItem(
           svgPath: AssetsManager.phoneSVG,
-          value: personalInfo.phone,
           url: 'tel:${personalInfo.phone}',
         ),
         _ContactItem(
           svgPath: AssetsManager.emailSVG,
-          value: personalInfo.email,
           url: 'mailto:${personalInfo.email}',
         ),
         _ContactItem(
@@ -49,10 +44,9 @@ class ContactInfo extends StatelessWidget {
 }
 
 class _ContactItem extends StatelessWidget {
-  const _ContactItem({required this.svgPath, this.value, this.url});
+  const _ContactItem({required this.svgPath, this.url});
 
   final String svgPath;
-  final String? value;
   final String? url;
 
   @override
@@ -83,14 +77,6 @@ class _ContactItem extends StatelessWidget {
               ),
             ),
           ),
-          if (value != null) ...[
-            Text(
-              value!,
-              style: context.textStyles.body.regular.copyWith(
-                color: context.colorManager.onSurface,
-              ),
-            ),
-          ],
         ],
       ),
     );

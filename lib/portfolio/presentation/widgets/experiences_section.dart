@@ -39,33 +39,44 @@ class _ExperienceItem extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       spacing: 16.h,
       children: [
-        Row(
-          children: [
-            Text(
-              '${experience.role} - ',
-              style: context.textStyles.title.regular.copyWith(
-                color: context.colorManager.onSurface,
+        SizedBox(
+          width: double.infinity,
+          child: Wrap(
+            alignment: WrapAlignment.spaceBetween,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            runSpacing: 4.h,
+            spacing: 16.w,
+            children: [
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                children: [
+                  Text(
+                    '${experience.role} - ',
+                    style: context.textStyles.title.regular.copyWith(
+                      color: context.colorManager.onSurface,
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () =>
+                        CustomUrlLauncher.launch(experience.companyUrl),
+                    borderRadius: BorderRadius.circular(12.r),
+                    child: Text(
+                      experience.companyName,
+                      style: context.textStyles.title.regular.copyWith(
+                        color: context.colorManager.primary,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-            ),
-            InkWell(
-              onTap: () => CustomUrlLauncher.launch(experience.companyUrl),
-              borderRadius: BorderRadius.circular(12.r),
-              child: Text(
-                experience.companyName,
-                style: context.textStyles.title.regular.copyWith(
-                  color: context.colorManager.primary,
+              Text(
+                '${experience.startDate} - ${experience.endDate}',
+                style: context.textStyles.label.regular.copyWith(
+                  color: context.colorManager.onSurfaceVariant,
                 ),
               ),
-            ),
-            const Spacer(),
-            SizedBox(width: 16.w),
-            Text(
-              '${experience.startDate} - ${experience.endDate}',
-              style: context.textStyles.body.regular.copyWith(
-                color: context.colorManager.onSurfaceVariant,
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
 
         if (experience.responsibilities.isNotEmpty)
@@ -90,6 +101,7 @@ class _ResponsibilitiesList extends StatelessWidget {
       itemBuilder: (context, index) {
         final resp = responsibilities[index];
         return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
               '• ',

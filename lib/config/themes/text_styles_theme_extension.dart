@@ -127,7 +127,7 @@ class FontManager {
         return sw / (tabletBP * 0.65);
       case DeviceTypeEnum.tablet:
         return SizeManager.instance.isPortrait
-            ? sw / (desktopBP * 0.3)
+            ? sw / (desktopBP * 0.5)
             : sw / (desktopBP * 0.98);
       case DeviceTypeEnum.desktop:
         return sw / (desktopBP * 0.3);

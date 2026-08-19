@@ -27,33 +27,14 @@ class EducationSection extends StatelessWidget {
             ),
           ),
           SizedBox(height: 16.h),
-          _secondRow(education, context),
+          Text(
+            education.details.first,
+            style: context.textStyles.label.regular.copyWith(
+              color: context.colorManager.onSurface,
+            ),
+          ),
         ],
       ),
-    );
-  }
-
-  Wrap _secondRow(EducationModel education, BuildContext context) {
-    return Wrap(
-      spacing: 8.w,
-      runSpacing: 8.h,
-      children: education.details
-          .map(
-            (detail) => Chip(
-              label: Text(
-                detail,
-                style: context.textStyles.body.regular.copyWith(
-                  color: context.colorManager.onPrimary,
-                ),
-              ),
-              backgroundColor: context.colorManager.primary,
-              side: BorderSide.none,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(50.r),
-              ),
-            ),
-          )
-          .toList(),
     );
   }
 
@@ -73,7 +54,7 @@ class EducationSection extends StatelessWidget {
         SizedBox(width: 16.w),
         Text(
           '${education.startDate} - ${education.endDate}',
-          style: context.textStyles.body.regular.copyWith(
+          style: context.textStyles.label.regular.copyWith(
             color: context.colorManager.onSurfaceVariant,
           ),
         ),

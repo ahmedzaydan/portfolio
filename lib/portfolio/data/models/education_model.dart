@@ -11,5 +11,5 @@ class EducationModel {
           'Cairo University - Faculty of Computers and Artificial Intelligence',
       startDate = 'Sep 2020',
       endDate = 'May 2024',
-      details = const ['Graduation project grade: A+', 'GPA: 3.24 (Very good)'];
+      details = const ['GPA: 3.24 (Very good)'];
 }

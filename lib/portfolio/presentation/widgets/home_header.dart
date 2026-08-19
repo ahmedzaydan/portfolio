@@ -35,7 +35,7 @@ class _DesktopLayout extends StatelessWidget {
         const Expanded(flex: 7, child: _TextBlock(personalInfo: personalInfo)),
         SizedBox(width: 80.w),
         Expanded(
-          flex: 2,
+          flex: 3,
           child: Align(child: _Avatar(avatar: personalInfo.avatar)),
         ),
       ],
@@ -72,11 +72,16 @@ class _MobileLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     const personalInfo = PortfolioDataSource.personalInfo;
 
-    return Column(
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _Avatar(avatar: personalInfo.avatar),
-        SizedBox(height: 48.h),
-        const _TextBlock(personalInfo: personalInfo),
+        const Expanded(flex: 7, child: _TextBlock(personalInfo: personalInfo)),
+        SizedBox(width: 40.w),
+        Expanded(
+          flex: 4,
+          child: Align(child: _Avatar(avatar: personalInfo.avatar)),
+        ),
       ],
     );
   }
@@ -136,36 +141,23 @@ class _Avatar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveLayoutBuilder(
-      mobile: (context) => Container(
-        width: 80.r,
-        height: 80.r,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(width: 1.w, color: context.colorManager.primary),
+    final borderWidth = SizeManager.instance
+        .conditionalValue(mobile: 1.5, tablet: 1.5, desktop: 1)
+        .w;
+
+    return Container(
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: borderWidth,
+          color: context.colorManager.primary,
         ),
-        padding: EdgeInsets.all(2.r),
-        child: CircleAvatar(backgroundImage: AssetImage(avatar)),
       ),
-      tablet: (context) => Container(
-        width: 160.r,
-        height: 160.r,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(width: 1.w, color: context.colorManager.primary),
+      child: Center(
+        child: ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(999.r),
+          child: Image.asset(avatar, fit: BoxFit.contain),
         ),
-        padding: EdgeInsets.all(4.r),
-        child: CircleAvatar(backgroundImage: AssetImage(avatar)),
-      ),
-      desktop: (context) => Container(
-        width: 260.r,
-        height: 260.r,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          border: Border.all(width: 1.w, color: context.colorManager.primary),
-        ),
-        padding: EdgeInsets.all(8.r),
-        child: CircleAvatar(backgroundImage: AssetImage(avatar)),
       ),
     );
   }
