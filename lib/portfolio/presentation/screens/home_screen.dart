@@ -7,6 +7,7 @@ import '../widgets/experiences_section.dart';
 import '../widgets/home_header.dart';
 import '../widgets/projects_section/projects_section.dart';
 import '../widgets/responsive_layout_builder.dart';
+import '../widgets/skills_section/skills_section.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -51,6 +52,8 @@ class _Layout extends StatelessWidget {
               SliverToBoxAdapter(child: ExperiencesSection()),
               _Separator(),
               SliverToBoxAdapter(child: ProjectsSection()),
+              _Separator(),
+              SliverToBoxAdapter(child: SkillsSection()),
             ],
           ),
         ),

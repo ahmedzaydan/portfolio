@@ -1,59 +1,67 @@
 class SkillsModel {
   final List<SkillModel> skills;
 
-  const SkillsModel() : skills = const [_mobile, _programming, _tools];
+  const SkillsModel()
+    : skills = const [
+        _appDev,
+        _architecture,
+        _coreFeatures,
+        _devOps,
+        _computerScience,
+      ];
 
-  static const SkillModel _mobile = SkillModel(
-    category: 'Mobile development',
+  static const SkillModel _appDev = SkillModel(
+    category: 'App Development & Languages',
+    items: ['Flutter', 'Dart', 'Android', 'iOS'],
+  );
+
+  static const SkillModel _architecture = SkillModel(
+    category: 'Architecture & State Management',
     items: [
-      'Flutter',
-      'Cubit',
-      'State management',
+      'Clean Architecture',
+      'MVVM',
+      'Cubit (State Management)',
+      'SOLID Principles',
+      'Design Patterns',
+      'OOP',
+      'Clean Code',
+    ],
+  );
+
+  static const SkillModel _coreFeatures = SkillModel(
+    category: 'Core Features & Integrations',
+    items: [
+      'Responsive & Adaptive UI',
       'Firebase',
+      'RESTful APIs',
       'Sqflite',
       'Google Maps',
       'Local Notifications',
-      'MVVM Architecture',
-      'Clean Architecture',
-      'Responsive and Adaptive UI',
-      'Debugging',
-      'Json serialization',
-      'Android',
-      'iOS',
-      'Push Updates',
       'Payment Gateways',
-      'Flavors',
-      'CI/CD',
-      'GitHub Actions',
-      'Gitlab CI/CD',
+      'Push Updates',
+      'JSON Serialization',
+      'App Flavors',
     ],
   );
 
-  static const SkillModel _programming = SkillModel(
-    category: 'Programming & Software Principles',
+  static const SkillModel _devOps = SkillModel(
+    category: 'DevOps, CI/CD & Tools',
     items: [
-      'Dart',
-      'Object Oriented Programming (OOP)',
-      'SOLID Principles',
-      'Design Patterns',
-      'RESTful APIs',
-      'Clean Code',
-      'Algorithms',
-      'Data Structures',
-    ],
-  );
-
-  static const SkillModel _tools = SkillModel(
-    category: 'Tools',
-    items: [
-      'Version control',
-      'Git',
+      'Git & Version Control',
       'GitHub',
-      'Gitlab',
-      'Trello',
+      'GitLab',
+      'GitHub Actions',
+      'GitLab CI/CD',
       'Postman',
       'Figma',
+      'Trello',
+      'Debugging',
     ],
+  );
+
+  static const SkillModel _computerScience = SkillModel(
+    category: 'Computer Science',
+    items: ['Algorithms', 'Data Structures'],
   );
 }
 
