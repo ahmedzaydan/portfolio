@@ -72,21 +72,23 @@ class _SectionState extends State<Section> with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) => VisibilityDetector(
-    key: Key(widget.child.hashCode.toString()),
-    onVisibilityChanged: _onVisibilityChanged,
-    child: AnimatedBuilder(
-      animation: _controller,
-      builder: (context, child) => FadeTransition(
-        opacity: _opacity,
-        child: SlideTransition(
-          position: _slide,
-          child: ScaleTransition(
-            scale: _scale,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              spacing: 40.h,
-              children: [_buildTitle(context), widget.child],
+  Widget build(BuildContext context) => SliverToBoxAdapter(
+    child: VisibilityDetector(
+      key: Key(widget.child.hashCode.toString()),
+      onVisibilityChanged: _onVisibilityChanged,
+      child: AnimatedBuilder(
+        animation: _controller,
+        builder: (context, child) => FadeTransition(
+          opacity: _opacity,
+          child: SlideTransition(
+            position: _slide,
+            child: ScaleTransition(
+              scale: _scale,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 40.h,
+                children: [_buildTitle(context), widget.child],
+              ),
             ),
           ),
         ),

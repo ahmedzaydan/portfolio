@@ -12,3 +12,5 @@ Before running any skill, you must pause and output:
 "I think the [Skill Name] skill is needed here because [brief reason]. Do you want me to run it?"
 
 Do not execute the skill or determine its outcome until I reply with a clear "Yes".
+
+For Any UI design run the skills/widgets/SKILL.md without my permission

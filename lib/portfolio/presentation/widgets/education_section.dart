@@ -4,6 +4,7 @@ import '../../../extensions/context_extension.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/models/education_model.dart';
 import '../../data/portfolio_data_source.dart';
+import '../../utils/sections_enum.dart';
 import 'section.dart';
 
 class EducationSection extends StatelessWidget {
@@ -14,7 +15,7 @@ class EducationSection extends StatelessWidget {
     const education = PortfolioDataSource.education;
 
     return Section(
-      title: 'Education',
+      title: SectionsEnumHelper.getTitle(SectionsEnum.education),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../utils/size_manager.dart';
 import '../../../data/portfolio_data_source.dart';
+import '../../../utils/sections_enum.dart';
 import '../responsive_layout_builder.dart';
 import '../section.dart';
 import 'project_card.dart';
@@ -12,7 +13,7 @@ class ProjectsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Section(
-      title: 'Projects',
+      title: SectionsEnumHelper.getTitle(SectionsEnum.projects),
       child: ResponsiveLayoutBuilder(
         mobile: (context) => const _ProjectsGrid(crossAxisCount: 1),
         tablet: (context) => const _ProjectsGrid(crossAxisCount: 2),

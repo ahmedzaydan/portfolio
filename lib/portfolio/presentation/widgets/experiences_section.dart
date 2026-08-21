@@ -5,6 +5,7 @@ import '../../../utils/custom_url_launcher.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/models/experiences_model.dart';
 import '../../data/portfolio_data_source.dart';
+import '../../utils/sections_enum.dart';
 import 'section.dart';
 
 class ExperiencesSection extends StatelessWidget {
@@ -15,7 +16,7 @@ class ExperiencesSection extends StatelessWidget {
     final experiences = PortfolioDataSource.experiences.experiences;
 
     return Section(
-      title: 'Experiences',
+      title: SectionsEnumHelper.getTitle(SectionsEnum.experiences),
       child: ListView.separated(
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),

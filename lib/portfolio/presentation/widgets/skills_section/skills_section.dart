@@ -4,6 +4,7 @@ import '../../../../extensions/context_extension.dart';
 import '../../../../utils/size_manager.dart';
 import '../../../data/models/skills_model.dart';
 import '../../../data/portfolio_data_source.dart';
+import '../../../utils/sections_enum.dart';
 import '../section.dart';
 import 'skill_item.dart';
 
@@ -15,7 +16,7 @@ class SkillsSection extends StatelessWidget {
     final skills = PortfolioDataSource.skills.skills;
 
     return Section(
-      title: 'Skills',
+      title: SectionsEnumHelper.getTitle(SectionsEnum.skills),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         spacing: 32.h,

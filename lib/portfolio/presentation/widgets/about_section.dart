@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../extensions/context_extension.dart';
 import '../../data/portfolio_data_source.dart';
+import '../../utils/sections_enum.dart';
 import 'section.dart';
 
 class AboutSection extends StatelessWidget {
@@ -12,7 +13,7 @@ class AboutSection extends StatelessWidget {
     const personalInfo = PortfolioDataSource.personalInfo;
 
     return Section(
-      title: 'About Me',
+      title: SectionsEnumHelper.getTitle(SectionsEnum.about),
       child: Text(
         personalInfo.about,
         style: context.textStyles.body.regular.copyWith(
