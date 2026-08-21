@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../utils/size_manager.dart';
 import '../../../data/portfolio_data_source.dart';
 import '../responsive_layout_builder.dart';
-import '../section_title.dart';
+import '../section.dart';
 import 'project_card.dart';
 
 class ProjectsSection extends StatelessWidget {
@@ -11,7 +11,7 @@ class ProjectsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SectionTitle(
+    return Section(
       title: 'Projects',
       child: ResponsiveLayoutBuilder(
         mobile: (context) => const _ProjectsGrid(crossAxisCount: 1),

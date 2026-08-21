@@ -4,7 +4,7 @@ import '../../../../extensions/context_extension.dart';
 import '../../../../utils/size_manager.dart';
 import '../../../data/models/skills_model.dart';
 import '../../../data/portfolio_data_source.dart';
-import '../section_title.dart';
+import '../section.dart';
 import 'skill_item.dart';
 
 class SkillsSection extends StatelessWidget {
@@ -14,7 +14,7 @@ class SkillsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final skills = PortfolioDataSource.skills.skills;
 
-    return SectionTitle(
+    return Section(
       title: 'Skills',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

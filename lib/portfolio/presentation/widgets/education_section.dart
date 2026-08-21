@@ -4,7 +4,7 @@ import '../../../extensions/context_extension.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/models/education_model.dart';
 import '../../data/portfolio_data_source.dart';
-import 'section_title.dart';
+import 'section.dart';
 
 class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
@@ -13,7 +13,7 @@ class EducationSection extends StatelessWidget {
   Widget build(BuildContext context) {
     const education = PortfolioDataSource.education;
 
-    return SectionTitle(
+    return Section(
       title: 'Education',
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

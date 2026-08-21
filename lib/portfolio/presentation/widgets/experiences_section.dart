@@ -5,7 +5,7 @@ import '../../../utils/custom_url_launcher.dart';
 import '../../../utils/size_manager.dart';
 import '../../data/models/experiences_model.dart';
 import '../../data/portfolio_data_source.dart';
-import 'section_title.dart';
+import 'section.dart';
 
 class ExperiencesSection extends StatelessWidget {
   const ExperiencesSection({super.key});
@@ -14,7 +14,7 @@ class ExperiencesSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final experiences = PortfolioDataSource.experiences.experiences;
 
-    return SectionTitle(
+    return Section(
       title: 'Experiences',
       child: ListView.separated(
         shrinkWrap: true,
